@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apolo Camisetas - Galeria</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>APOLO <span>CAMISETAS</span></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="galeria.html" class="active">Galeria</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="galeria-completa">
+            <div class="section-header">
+                <h2>Nossa Coleção Completa</h2>
+                <p>Descubra nossas camisetas de alta qualidade em diversos estilos</p>
+            </div>
+            
+            <div class="filtros">
+                <button class="btn filtro-btn active" data-categoria="todos">Todos</button>
+                <button class="btn filtro-btn" data-categoria="basica">Básicas</button>
+                <button class="btn filtro-btn" data-categoria="estampada">Estampadas</button>
+                <button class="btn filtro-btn" data-categoria="premium">Premium</button>
+            </div>
+            
+            <div class="galeria-grid">
+                <!-- Item 1 -->
+                <div class="galeria-item" data-categoria="basica">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Camiseta Básica Branca" loading="lazy">
+                        <div class="hover-actions">
+                            <button class="quick-view"><i class="fas fa-eye"></i></button>
+                            <button class="favorite"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="galeria-info">
+                        <h3>Camiseta Básica Branca</h3>
+                        <p class="price">R$ 59,90</p>
+                        <div class="sizes">
+                            <span>P</span>
+                            <span>M</span>
+                            <span class="selected">G</span>
+                            <span>GG</span>
+                        </div>
+                        <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                
+                <!-- Item 2 -->
+                <div class="galeria-item" data-categoria="basica">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Camiseta Básica Preta" loading="lazy">
+                        <div class="hover-actions">
+                            <button class="quick-view"><i class="fas fa-eye"></i></button>
+                            <button class="favorite"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="galeria-info">
+                        <h3>Camiseta Básica Preta</h3>
+                        <p class="price">R$ 59,90</p>
+                        <div class="sizes">
+                            <span>P</span>
+                            <span class="selected">M</span>
+                            <span>G</span>
+                            <span>GG</span>
+                        </div>
+                        <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                
+                <!-- Item 3 -->
+                <div class="galeria-item" data-categoria="estampada">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Camiseta Estampada Azul" loading="lazy">
+                        <div class="hover-actions">
+                            <button class="quick-view"><i class="fas fa-eye"></i></button>
+                            <button class="favorite"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="galeria-info">
+                        <h3>Camiseta Estampada Azul</h3>
+                        <p class="price">R$ 79,90</p>
+                        <div class="sizes">
+                            <span>P</span>
+                            <span>M</span>
+                            <span>G</span>
+                            <span class="selected">GG</span>
+                        </div>
+                        <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                
+                <!-- Item 4 -->
+                <div class="galeria-item" data-categoria="estampada">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Camiseta Estampada Vermelha" loading="lazy">
+                        <div class="hover-actions">
+                            <button class="quick-view"><i class="fas fa-eye"></i></button>
+                            <button class="favorite"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="galeria-info">
+                        <h3>Camiseta Estampada Vermelha</h3>
+                        <p class="price">R$ 79,90</p>
+                        <div class="sizes">
+                            <span class="selected">P</span>
+                            <span>M</span>
+                            <span>G</span>
+                            <span>GG</span>
+                        </div>
+                        <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                
+                <!-- Item 5 -->
+                <div class="galeria-item" data-categoria="premium">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Camiseta Premium Cinza" loading="lazy">
+                        <div class="hover-actions">
+                            <button class="quick-view"><i class="fas fa-eye"></i></button>
+                            <button class="favorite"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="galeria-info">
+                        <h3>Camiseta Premium Cinza</h3>
+                        <p class="price">R$ 99,90</p>
+                        <div class="sizes">
+                            <span>P</span>
+                            <span class="selected">M</span>
+                            <span>G</span>
+                            <span>GG</span>
+                        </div>
+                        <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                
+                <!-- Item 6 -->
+                <div class="galeria-item" data-categoria="premium">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Camiseta Premium Verde" loading="lazy">
+                        <div class="hover-actions">
+                            <button class="quick-view"><i class="fas fa-eye"></i></button>
+                            <button class="favorite"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="galeria-info">
+                        <h3>Camiseta Premium Verde</h3>
+                        <p class="price">R$ 99,90</p>
+                        <div class="sizes">
+                            <span>P</span>
+                            <span>M</span>
+                            <span class="selected">G</span>
+                            <span>GG</span>
+                        </div>
+                        <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                
+                <!-- Item 7 -->
+                <div class="galeria-item" data-categoria="basica">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Camiseta Básica Cinza" loading="lazy">
+                        <div class="hover-actions">
+                            <button class="quick-view"><i class="fas fa-eye"></i></button>
+                            <button class="favorite"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="galeria-info">
+                        <h3>Camiseta Básica Cinza</h3>
+                        <p class="price">R$ 59,90</p>
+                        <div class="sizes">
+                            <span>P</span>
+                            <span>M</span>
+                            <span>G</span>
+                            <span class="selected">GG</span>
+                        </div>
+                        <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+                
+                <!-- Item 8 -->
+                <div class="galeria-item" data-categoria="estampada">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Camiseta Estampada Preta" loading="lazy">
+                        <div class="hover-actions">
+                            <button class="quick-view"><i class="fas fa-eye"></i></button>
+                            <button class="favorite"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="galeria-info">
+                        <h3>Camiseta Estampada Preta</h3>
+                        <p class="price">R$ 79,90</p>
+                        <div class="sizes">
+                            <span class="selected">P</span>
+                            <span>M</span>
+                            <span>G</span>
+                            <span>GG</span>
+                        </div>
+                        <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>Sobre a Apolo</h3>
+                <p>Desde 2010 produzindo camisetas de alta qualidade com conforto e estilo para você se expressar.</p>
+                <div class="socials">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section links">
+                <h3>Links Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="galeria.html">Galeria</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h3>Contato</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Rua das Camisetas, 123 - São Paulo/SP</p>
+                <p><i class="fas fa-phone"></i> (11) 1234-5678</p>
+                <p><i class="fas fa-envelope"></i> contato@apolocamisetas.com.br</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Apolo Camisetas. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Filtro da galeria
+        document.addEventListener('DOMContentLoaded', function() {
+            const filtroBtns = document.querySelectorAll('.filtro-btn');
+            const galeriaItems = document.querySelectorAll('.galeria-item');
+
+            filtroBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove a classe active de todos os botões
+                    filtroBtns.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Adiciona a classe active ao botão clicado
+                    this.classList.add('active');
+                    
+                    const categoria = this.dataset.categoria;
+                    
+                    // Filtra os itens da galeria
+                    galeriaItems.forEach(item => {
+                        if (categoria === 'todos' || item.dataset.categoria === categoria) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Adiciona efeito hover nas imagens
+            const imageContainers = document.querySelectorAll('.image-container');
+            imageContainers.forEach(container => {
+                container.addEventListener('mouseenter', function() {
+                    this.querySelector('.hover-actions').style.opacity = '1';
+                });
+                container.addEventListener('mouseleave', function() {
+                    this.querySelector('.hover-actions').style.opacity = '0';
+                });
+            });
+
+            // Seleção de tamanho
+            const sizeOptions = document.querySelectorAll('.sizes span');
+            sizeOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    sizeOptions.forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
