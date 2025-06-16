@@ -9,6 +9,237 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos específicos para a galeria */
+        .galeria-completa {
+            padding: 80px 5%;
+            background-color: white;
+        }
+        
+        .galeria-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .galeria-header h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .galeria-header p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .filtros {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .filtro-btn {
+            padding: 8px 20px;
+            background-color: #f9f9f9;
+            color: #333;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .filtro-btn:hover, .filtro-btn.active {
+            background-color: #ff6b6b;
+            color: white;
+            border-color: #ff6b6b;
+        }
+        
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .galeria-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .galeria-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .image-container {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .galeria-item:hover .image-container img {
+            transform: scale(1.1);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #ff6b6b;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .hover-actions {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .galeria-item:hover .hover-actions {
+            opacity: 1;
+        }
+        
+        .quick-view, .favorite {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: white;
+            color: #333;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .quick-view:hover, .favorite:hover {
+            background: #ff6b6b;
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .favorite.active i {
+            color: #ff6b6b;
+        }
+        
+        .galeria-info {
+            padding: 20px;
+        }
+        
+        .galeria-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        .price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin: 10px 0;
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1rem;
+            margin-right: 10px;
+        }
+        
+        .discount {
+            background: #f1c40f;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .sizes {
+            display: flex;
+            gap: 8px;
+            margin: 15px 0;
+        }
+        
+        .sizes span {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #f9f9f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .sizes span:hover, .sizes span.selected {
+            background: #ff6b6b;
+            color: white;
+        }
+        
+        .add-to-cart {
+            width: 100%;
+            padding: 12px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .add-to-cart:hover {
+            background: #ff6b6b;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .galeria-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .filtros {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .galeria-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -31,23 +262,24 @@
 
     <main>
         <section class="galeria-completa">
-            <div class="section-header">
+            <div class="galeria-header">
                 <h2>Nossa Coleção Completa</h2>
                 <p>Descubra nossas camisetas de alta qualidade em diversos estilos</p>
             </div>
             
             <div class="filtros">
-                <button class="btn filtro-btn active" data-categoria="todos">Todos</button>
-                <button class="btn filtro-btn" data-categoria="basica">Básicas</button>
-                <button class="btn filtro-btn" data-categoria="estampada">Estampadas</button>
-                <button class="btn filtro-btn" data-categoria="premium">Premium</button>
+                <button class="filtro-btn active" data-categoria="todos">Todos</button>
+                <button class="filtro-btn" data-categoria="basica">Básicas</button>
+                <button class="filtro-btn" data-categoria="estampada">Estampadas</button>
+                <button class="filtro-btn" data-categoria="premium">Premium</button>
             </div>
             
             <div class="galeria-grid">
-                <!-- Item 1 -->
+                <!-- Item 1 - Básica Branca -->
                 <div class="galeria-item" data-categoria="basica">
                     <div class="image-container">
-                        <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Camiseta Básica Branca" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1578932750355-5eb30ece487a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Camiseta Básica Branca" loading="lazy">
+                        <span class="product-badge">Novo</span>
                         <div class="hover-actions">
                             <button class="quick-view"><i class="fas fa-eye"></i></button>
                             <button class="favorite"><i class="far fa-heart"></i></button>
@@ -62,14 +294,16 @@
                             <span class="selected">G</span>
                             <span>GG</span>
                         </div>
-                        <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i> Adicionar
+                        </button>
                     </div>
                 </div>
                 
-                <!-- Item 2 -->
+                <!-- Item 2 - Básica Preta -->
                 <div class="galeria-item" data-categoria="basica">
                     <div class="image-container">
-                        <img src="https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Camiseta Básica Preta" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Camiseta Básica Preta" loading="lazy">
                         <div class="hover-actions">
                             <button class="quick-view"><i class="fas fa-eye"></i></button>
                             <button class="favorite"><i class="far fa-heart"></i></button>
@@ -84,14 +318,17 @@
                             <span>G</span>
                             <span>GG</span>
                         </div>
-                        <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i> Adicionar
+                        </button>
                     </div>
                 </div>
                 
-                <!-- Item 3 -->
+                <!-- Item 3 - Estampada Azul -->
                 <div class="galeria-item" data-categoria="estampada">
                     <div class="image-container">
-                        <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Camiseta Estampada Azul" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Camiseta Estampada Azul" loading="lazy">
+                        <span class="product-badge">Oferta</span>
                         <div class="hover-actions">
                             <button class="quick-view"><i class="fas fa-eye"></i></button>
                             <button class="favorite"><i class="far fa-heart"></i></button>
@@ -99,21 +336,27 @@
                     </div>
                     <div class="galeria-info">
                         <h3>Camiseta Estampada Azul</h3>
-                        <p class="price">R$ 79,90</p>
+                        <p class="price">
+                            <span class="original-price">R$ 99,90</span>
+                            R$ 79,90
+                            <span class="discount">20% OFF</span>
+                        </p>
                         <div class="sizes">
                             <span>P</span>
                             <span>M</span>
                             <span>G</span>
                             <span class="selected">GG</span>
                         </div>
-                        <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i> Adicionar
+                        </button>
                     </div>
                 </div>
                 
-                <!-- Item 4 -->
+                <!-- Item 4 - Estampada Vermelha -->
                 <div class="galeria-item" data-categoria="estampada">
                     <div class="image-container">
-                        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Camiseta Estampada Vermelha" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Camiseta Estampada Vermelha" loading="lazy">
                         <div class="hover-actions">
                             <button class="quick-view"><i class="fas fa-eye"></i></button>
                             <button class="favorite"><i class="far fa-heart"></i></button>
@@ -128,14 +371,17 @@
                             <span>G</span>
                             <span>GG</span>
                         </div>
-                        <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i> Adicionar
+                        </button>
                     </div>
                 </div>
                 
-                <!-- Item 5 -->
+                <!-- Item 5 - Premium Cinza -->
                 <div class="galeria-item" data-categoria="premium">
                     <div class="image-container">
-                        <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Camiseta Premium Cinza" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Camiseta Premium Cinza" loading="lazy">
+                        <span class="product-badge">Premium</span>
                         <div class="hover-actions">
                             <button class="quick-view"><i class="fas fa-eye"></i></button>
                             <button class="favorite"><i class="far fa-heart"></i></button>
@@ -150,14 +396,17 @@
                             <span>G</span>
                             <span>GG</span>
                         </div>
-                        <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i> Adicionar
+                        </button>
                     </div>
                 </div>
                 
-                <!-- Item 6 -->
+                <!-- Item 6 - Premium Verde -->
                 <div class="galeria-item" data-categoria="premium">
                     <div class="image-container">
-                        <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Camiseta Premium Verde" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Camiseta Premium Verde" loading="lazy">
+                        <span class="product-badge">Premium</span>
                         <div class="hover-actions">
                             <button class="quick-view"><i class="fas fa-eye"></i></button>
                             <button class="favorite"><i class="far fa-heart"></i></button>
@@ -172,14 +421,16 @@
                             <span class="selected">G</span>
                             <span>GG</span>
                         </div>
-                        <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i> Adicionar
+                        </button>
                     </div>
                 </div>
                 
-                <!-- Item 7 -->
+                <!-- Item 7 - Básica Cinza -->
                 <div class="galeria-item" data-categoria="basica">
                     <div class="image-container">
-                        <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Camiseta Básica Cinza" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Camiseta Básica Cinza" loading="lazy">
                         <div class="hover-actions">
                             <button class="quick-view"><i class="fas fa-eye"></i></button>
                             <button class="favorite"><i class="far fa-heart"></i></button>
@@ -194,14 +445,17 @@
                             <span>G</span>
                             <span class="selected">GG</span>
                         </div>
-                        <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i> Adicionar
+                        </button>
                     </div>
                 </div>
                 
-                <!-- Item 8 -->
+                <!-- Item 8 - Estampada Preta -->
                 <div class="galeria-item" data-categoria="estampada">
                     <div class="image-container">
-                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Camiseta Estampada Preta" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Camiseta Estampada Preta" loading="lazy">
+                        <span class="product-badge">Oferta</span>
                         <div class="hover-actions">
                             <button class="quick-view"><i class="fas fa-eye"></i></button>
                             <button class="favorite"><i class="far fa-heart"></i></button>
@@ -209,14 +463,20 @@
                     </div>
                     <div class="galeria-info">
                         <h3>Camiseta Estampada Preta</h3>
-                        <p class="price">R$ 79,90</p>
+                        <p class="price">
+                            <span class="original-price">R$ 89,90</span>
+                            R$ 69,90
+                            <span class="discount">22% OFF</span>
+                        </p>
                         <div class="sizes">
                             <span class="selected">P</span>
                             <span>M</span>
                             <span>G</span>
                             <span>GG</span>
                         </div>
-                        <button class="btn add-to-cart">Adicionar ao Carrinho</button>
+                        <button class="add-to-cart">
+                        <i class="fas fa-shopping-cart"></i> Adicionar
+                        </button>
                     </div>
                 </div>
             </div>
@@ -224,17 +484,17 @@
     </main>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-section about">
+        <div class="footer-container">
+            <div class="footer-section">
                 <h3>Sobre a Apolo</h3>
                 <p>Desde 2010 produzindo camisetas de alta qualidade com conforto e estilo para você se expressar.</p>
-                <div class="socials">
+                <div class="social-icons">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
-            <div class="footer-section links">
+            <div class="footer-section">
                 <h3>Links Rápidos</h3>
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -243,7 +503,7 @@
                     <li><a href="contato.html">Contato</a></li>
                 </ul>
             </div>
-            <div class="footer-section contact">
+            <div class="footer-section">
                 <h3>Contato</h3>
                 <p><i class="fas fa-map-marker-alt"></i> Rua das Camisetas, 123 - São Paulo/SP</p>
                 <p><i class="fas fa-phone"></i> (11) 1234-5678</p>
@@ -255,10 +515,9 @@
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
     <script>
-        // Filtro da galeria
         document.addEventListener('DOMContentLoaded', function() {
+            // Filtro da galeria
             const filtroBtns = document.querySelectorAll('.filtro-btn');
             const galeriaItems = document.querySelectorAll('.galeria-item');
 
@@ -283,14 +542,55 @@
                 });
             });
 
-            // Adiciona efeito hover nas imagens
-            const imageContainers = document.querySelectorAll('.image-container');
-            imageContainers.forEach(container => {
-                container.addEventListener('mouseenter', function() {
-                    this.querySelector('.hover-actions').style.opacity = '1';
+            // Botão de favoritos
+            const favoriteButtons = document.querySelectorAll('.favorite');
+            favoriteButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    this.classList.toggle('active');
+                    this.innerHTML = this.classList.contains('active') ? 
+                        '<i class="fas fa-heart"></i>' : 
+                        '<i class="far fa-heart"></i>';
+                    
+                    // Feedback visual
+                    if (this.classList.contains('active')) {
+                        this.style.transform = 'scale(1.2)';
+                        setTimeout(() => {
+                            this.style.transform = 'scale(1)';
+                        }, 300);
+                    }
                 });
-                container.addEventListener('mouseleave', function() {
-                    this.querySelector('.hover-actions').style.opacity = '0';
+            });
+
+            // Adicionar ao carrinho
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            const cartCount = document.querySelector('.cart-count');
+            let count = 0;
+            
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    count++;
+                    cartCount.textContent = count;
+                    
+                    // Efeito visual
+                    const originalText = this.innerHTML;
+                    this.innerHTML = '<i class="fas fa-check"></i> Adicionado!';
+                    this.style.backgroundColor = '#27ae60';
+                    
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                        this.style.backgroundColor = '';
+                    }, 2000);
+                });
+            });
+
+            // Visualização rápida
+            const quickViewButtons = document.querySelectorAll('.quick-view');
+            quickViewButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    // Aqui você pode implementar um modal de visualização rápida
+                    alert('Visualização rápida do produto');
                 });
             });
 
@@ -298,7 +598,13 @@
             const sizeOptions = document.querySelectorAll('.sizes span');
             sizeOptions.forEach(option => {
                 option.addEventListener('click', function() {
-                    sizeOptions.forEach(opt => opt.classList.remove('selected'));
+                    // Remove a seleção de todos os tamanhos no mesmo produto
+                    const parentSizes = this.parentElement;
+                    parentSizes.querySelectorAll('span').forEach(span => {
+                        span.classList.remove('selected');
+                    });
+                    
+                    // Adiciona seleção ao tamanho clicado
                     this.classList.add('selected');
                 });
             });
